@@ -3,12 +3,12 @@ const router = express.Router();
 const pool = require('../mysql');
 
 router.get('/list',(req,res) =>  {
-    pool.query('select * from categories where parentId is null',(error,results) => {
+    pool.query('select * from categories',(error,results) => {
         if (error) {
             resError(res, '系统发生异常');
             return;
         }
-        pool.query('select')
+        res.send(results);
     });
 });
 
